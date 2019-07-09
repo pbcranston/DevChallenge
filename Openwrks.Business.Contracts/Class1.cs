@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Openwrks.Data.Db
+namespace Openwrks.Business.Contracts
 {
     public class Class1
     {
