@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Openwrks.Data.Entities.Configurations;
 
 namespace Openwrks.Data.Db
 {
@@ -15,6 +16,9 @@ namespace Openwrks.Data.Db
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new BankConfiguration());
+
             // Ensure we use DateTime2 fields in SQL
             foreach (var property in builder.Model.GetEntityTypes()
                 .SelectMany(t => t.GetProperties())
@@ -25,5 +29,6 @@ namespace Openwrks.Data.Db
 
             base.OnModelCreating(builder);
         }
+
     }
 }

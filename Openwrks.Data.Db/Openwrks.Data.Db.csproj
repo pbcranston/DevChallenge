@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Openwrks.Data.Contracts\Openwrks.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Openwrks.Data.Entities\Openwrks.Data.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

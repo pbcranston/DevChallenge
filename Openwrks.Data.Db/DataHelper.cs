@@ -13,6 +13,11 @@ namespace Openwrks.Data.Db
     {
         public static void AddDataLayer(this IServiceCollection services, string connStr)
         {
+            services.AddDbContext<OpenwrksContext>(c =>
+            {
+                c.UseSqlServer(connStr);
+            });
+
             var pocos = Assembly.Load("Openwrks.Data.Entities").DefinedTypes
                 .Where(x => x.ImplementedInterfaces.Contains(typeof(IEntity)) && x.IsClass);
 

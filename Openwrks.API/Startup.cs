@@ -18,6 +18,7 @@ using Openwrks.API.Middleware;
 using Microsoft.AspNetCore.Routing;
 using Openwrks.Data.Db;
 using Openwrks.Business;
+using System.IO;
 
 namespace Openwrks.API
 {
@@ -35,6 +36,8 @@ namespace Openwrks.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var serilog = Configuration.GetConnectionString("Serilog");
+
             services.AddSingleton<ILogger>(c =>
             {
                 var env = c.GetService<IHostingEnvironment>();
@@ -71,12 +74,15 @@ namespace Openwrks.API
             {
                 c.SwaggerDoc("v1", new Info { Title = "Openwrks", Version = "v1" });
 
-                c.IncludeXmlComments(GetXmlCommentsPath());
-                c.IncludeXmlComments(GetXmlCommentsPathForViewModels());
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
 
                 c.AddSecurityDefinition("basic", new BasicAuthScheme { Type = "basic" });
 
             });
+
+
             #endregion Swagger
         }
 
@@ -116,6 +122,8 @@ namespace Openwrks.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Openwrks API v1");
             });
+
+
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
