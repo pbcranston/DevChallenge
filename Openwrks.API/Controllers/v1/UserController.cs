@@ -22,12 +22,12 @@ namespace Openwrks.API.Controllers.v1
 
 
         [HttpGet()]
-        [Produces("application/json", Type = typeof(ListViewModel<UserSimpleViewModel>))]
+        [Produces("application/json", Type = typeof(ListViewModel<UserViewModel>))]
         public async Task<IActionResult> GetUsers([FromQuery] UserListRequestModel filters, DataMode mode)
         {
-            var userList = new List<UserSimpleViewModel>();
+            var userList = new List<UserViewModel>();
 
-            userList.Add(new UserSimpleViewModel()
+            userList.Add(new UserViewModel()
             {
                 AccountNumber = "12345678",
                 FirstName = "Peter",
