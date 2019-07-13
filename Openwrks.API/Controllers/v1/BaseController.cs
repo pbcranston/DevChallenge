@@ -57,6 +57,23 @@ namespace Openwrks.API.Controllers.v1
             });
         }
         
+        
+        public async Task<IActionResult> GetCreatedRequestModel<TCreateRM>(TCreateRM viewModel, Guid entityId, string route, string message = null)
+            where TCreateRM : class, ICreateRequestModel, new()
+        {
+            viewModel.Id = entityId;
+            return CreatedAtRoute(route, new { id = entityId }, new ItemViewModel<TCreateRM>
+            {
+                Data = viewModel,
+                Status = new ResponseViewModel
+                {
+                    Status = HttpStatusCode.Created,
+                    Message = message
+                }
+            });
+        }
+
+
         public IActionResult GetNotFound(string message = null)
         {
             return NotFound(new ErrorViewModel()

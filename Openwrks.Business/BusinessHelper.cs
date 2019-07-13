@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Openwrks.Business.Contracts.Interfaces;
+using Openwrks.Business.Services;
 
 namespace Openwrks.Business
 {
@@ -9,6 +11,7 @@ namespace Openwrks.Business
     {
         public static void AddBusinessLayer(this IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

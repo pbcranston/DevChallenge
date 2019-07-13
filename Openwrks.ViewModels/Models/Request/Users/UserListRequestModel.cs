@@ -7,5 +7,6 @@ namespace Openwrks.ViewModels.Models.Request.Generic
 {
     public class UserListRequestModel : PagingParameterModel, IListRequestModel
     {
+        public Guid BankId { get; set; }
     }
 }

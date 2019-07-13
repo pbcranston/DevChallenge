@@ -12,7 +12,8 @@ namespace Openwrks.Business.Models
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDataModel>();
+            CreateMap<User, UserDataModel>()
+                .ForMember(dest => dest.BankName, opt => opt.MapFrom(src => src.Bank.Name));
             CreateMap<UserCreateModel, User>();
 
             CreateMap<Bank, BankDataModel>();

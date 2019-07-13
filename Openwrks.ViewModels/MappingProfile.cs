@@ -26,6 +26,8 @@ namespace Openwrks.ViewModels
                 .Include<BankListRequestModel, BankListQueryModel>()
                 .ReverseMap();
 
+            CreateMap<UserListRequestModel, UserListQueryModel>().ReverseMap();
+            CreateMap<BankListRequestModel, BankListQueryModel>().ReverseMap();
 
             CreateMap<UserDataModel, UserViewModel>();
             CreateMap<UserCreateRequestModel, UserCreateModel>();

@@ -9,5 +9,6 @@ namespace Openwrks.ViewModels.Models.Response.Users
         public string AccountNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string BankName { get; set; }
     }
 }

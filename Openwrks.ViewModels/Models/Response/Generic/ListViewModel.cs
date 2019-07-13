@@ -14,8 +14,6 @@ namespace Openwrks.ViewModels.Models.Response.Generic
         
         public IEnumerable<T> Data { get; set; }
 
-        public object Filters { get; set; }
-
         public PagingViewModel Paging { get; set; }
 
         /// <inheritdoc/>
