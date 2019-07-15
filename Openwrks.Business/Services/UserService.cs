@@ -61,6 +61,20 @@ namespace Openwrks.Business.Services
             }
             return query;
         }
+
+        public async Task<UserDataModel> GetAsync(string accountNumber)
+        {
+            var query = _repository.All();
+            query = await DoFilterAsync(null, query, DataMode.Full);
+            var user = await query.FirstOrDefaultAsync(u => u.AccountNumber == accountNumber);
+
+            if (user == null)
+                return null;
+
+            var dataModel = _mapper.Map<UserDataModel>(user);
+
+            return dataModel;
+        }
     }
     
 }

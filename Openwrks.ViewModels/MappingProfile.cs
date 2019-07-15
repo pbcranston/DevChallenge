@@ -10,6 +10,8 @@ using System.Text;
 using Openwrks.ViewModels.Models.Request.Users;
 using Openwrks.ViewModels.Models.Response.Users;
 using Openwrks.ViewModels.Models.Response.Bank;
+using Openwrks.Business.Models.Models.Account;
+using Openwrks.ViewModels.Models.Response.Account;
 
 namespace Openwrks.ViewModels
 {
@@ -34,6 +36,10 @@ namespace Openwrks.ViewModels
 
             CreateMap<BankDataModel, BankViewModel>();
             CreateMap<BankCreateRequestModel, BankCreateModel>();
+            
+            CreateMap<AccountDataModel, AccountViewModel>();
+            CreateMap<BalanceDataModel, BalanceViewModel>();
+            CreateMap<TransactionDataModel, TransactionViewModel>();
         }
     }
 }

@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{62140224-B34
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{919F4DCC-23DF-4090-BA21-55DCB84B4E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.API", "Openwrks.API\Openwrks.API.csproj", "{CDF55F78-7ECF-499B-A92B-A226314E2673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.API", "Openwrks.API\Openwrks.API.csproj", "{CDF55F78-7ECF-499B-A92B-A226314E2673}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{2AAA406A-9B0C-4256-B2FB-D31CEC5CAC02}"
 EndProject
@@ -15,21 +15,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{075ACDFD-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{EE2C2A7A-BAB1-412D-9042-787035D4A948}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Data.Contracts", "Openwrks.Data.Contracts\Openwrks.Data.Contracts.csproj", "{7067EBBD-736A-4284-8387-9671C98325F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Data.Contracts", "Openwrks.Data.Contracts\Openwrks.Data.Contracts.csproj", "{7067EBBD-736A-4284-8387-9671C98325F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Data.Entities", "Openwrks.Data.Entities\Openwrks.Data.Entities.csproj", "{65F16273-8517-4875-98C1-C2DC87702991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Data.Entities", "Openwrks.Data.Entities\Openwrks.Data.Entities.csproj", "{65F16273-8517-4875-98C1-C2DC87702991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Data.Db", "Openwrks.Data.Db\Openwrks.Data.Db.csproj", "{1E7C8D46-BE76-4A09-A5A0-AD755007DBF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Data.Db", "Openwrks.Data.Db\Openwrks.Data.Db.csproj", "{1E7C8D46-BE76-4A09-A5A0-AD755007DBF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Core", "Openwrks.Core\Openwrks.Core.csproj", "{81339F51-3343-470C-AB5E-162A0FC36BD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Core", "Openwrks.Core\Openwrks.Core.csproj", "{81339F51-3343-470C-AB5E-162A0FC36BD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.ViewModels", "Openwrks.ViewModels\Openwrks.ViewModels.csproj", "{3767B658-04AA-4251-9816-DB97C98A2C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.ViewModels", "Openwrks.ViewModels\Openwrks.ViewModels.csproj", "{3767B658-04AA-4251-9816-DB97C98A2C48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Business", "Openwrks.Business\Openwrks.Business.csproj", "{6DDB781E-0F1D-4124-8B59-AA27A2115151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Business", "Openwrks.Business\Openwrks.Business.csproj", "{6DDB781E-0F1D-4124-8B59-AA27A2115151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Business.Contracts", "Openwrks.Business.Contracts\Openwrks.Business.Contracts.csproj", "{C073F805-93DB-45F6-A307-71FDC307DD47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Business.Contracts", "Openwrks.Business.Contracts\Openwrks.Business.Contracts.csproj", "{C073F805-93DB-45F6-A307-71FDC307DD47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Openwrks.Business.Models", "Openwrks.Business.Models\Openwrks.Business.Models.csproj", "{2A651628-D1D6-47E6-B1BF-01A405FD32CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openwrks.Business.Models", "Openwrks.Business.Models\Openwrks.Business.Models.csproj", "{2A651628-D1D6-47E6-B1BF-01A405FD32CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankProviders.Bizfi", "BankProviders.Bizfi\BankProviders.Bizfi.csproj", "{EE030309-EE4E-4CA7-A045-7E9454D99D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankProviders.FairWay", "BankProviders.FairWay\BankProviders.FairWay.csproj", "{33F523BC-22FB-4AEC-9D12-49CC90699147}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,14 @@ Global
 		{2A651628-D1D6-47E6-B1BF-01A405FD32CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A651628-D1D6-47E6-B1BF-01A405FD32CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A651628-D1D6-47E6-B1BF-01A405FD32CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE030309-EE4E-4CA7-A045-7E9454D99D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE030309-EE4E-4CA7-A045-7E9454D99D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE030309-EE4E-4CA7-A045-7E9454D99D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE030309-EE4E-4CA7-A045-7E9454D99D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F523BC-22FB-4AEC-9D12-49CC90699147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F523BC-22FB-4AEC-9D12-49CC90699147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F523BC-22FB-4AEC-9D12-49CC90699147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F523BC-22FB-4AEC-9D12-49CC90699147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +99,8 @@ Global
 		{6DDB781E-0F1D-4124-8B59-AA27A2115151} = {919F4DCC-23DF-4090-BA21-55DCB84B4E82}
 		{C073F805-93DB-45F6-A307-71FDC307DD47} = {919F4DCC-23DF-4090-BA21-55DCB84B4E82}
 		{2A651628-D1D6-47E6-B1BF-01A405FD32CC} = {919F4DCC-23DF-4090-BA21-55DCB84B4E82}
+		{EE030309-EE4E-4CA7-A045-7E9454D99D7A} = {EE2C2A7A-BAB1-412D-9042-787035D4A948}
+		{33F523BC-22FB-4AEC-9D12-49CC90699147} = {EE2C2A7A-BAB1-412D-9042-787035D4A948}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AD0F80F-77F8-4464-8A1F-88157FE9F4A5}
