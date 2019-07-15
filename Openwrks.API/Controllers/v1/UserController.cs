@@ -79,6 +79,10 @@ namespace Openwrks.API.Controllers.v1
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var existingAccount = await _userService.GetAsync(user.AccountNumber);
+            if (existingAccount != null)
+                return GetBadRequest(user, $"User with account number {user.AccountNumber} already exists.");
+            
             var userDto = Mapper.Map<UserCreateModel>(user);
 
             var newUserId = await _userService.AddAsync(userDto);
