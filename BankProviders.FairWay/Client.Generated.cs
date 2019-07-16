@@ -10,47 +10,49 @@
 #pragma warning disable 1573 // Disable "CS1573 Parameter '...' has no matching param tag in the XML comment for ...
 #pragma warning disable 1591 // Disable "CS1591 Missing XML comment for publicly visible type or member ..."
 
+using System.Collections.Generic;
+
 namespace BankProviders.FairWay
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class ApiV1AccountsByAccountClient 
+    public partial class ApiV1FairWayClient
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-    
-        public ApiV1AccountsByAccountClient(string baseUrl, System.Net.Http.HttpClient httpClient)
+
+        public ApiV1FairWayClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
-            BaseUrl = baseUrl; 
-            _httpClient = httpClient; 
-            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            BaseUrl = baseUrl;
+            _httpClient = httpClient;
+            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings();
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
         }
-    
-        public string BaseUrl 
+
+        public string BaseUrl
         {
             get { return _baseUrl; }
             set { _baseUrl = value; }
         }
-    
+
         protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
-    
+
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
+
         /// <returns>Successfully found the account</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<AccountViewModel> NumberGetAsync(string account_number)
         {
             return NumberGetAsync(account_number, System.Threading.CancellationToken.None);
         }
-    
+
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Successfully found the account</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -58,11 +60,11 @@ namespace BankProviders.FairWay
         {
             if (account_number == null)
                 throw new System.ArgumentNullException("account_number");
-    
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/accounts/{account_number}");
             urlBuilder_.Replace("{account_number}", System.Uri.EscapeDataString(ConvertToString(account_number, System.Globalization.CultureInfo.InvariantCulture)));
-    
+
             var client_ = _httpClient;
             try
             {
@@ -70,12 +72,12 @@ namespace BankProviders.FairWay
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
+
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
                     PrepareRequest(client_, request_, url_);
-    
+
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     try
                     {
@@ -85,17 +87,17 @@ namespace BankProviders.FairWay
                             foreach (var item_ in response_.Content.Headers)
                                 headers_[item_.Key] = item_.Value;
                         }
-    
+
                         ProcessResponse(client_, response_);
-    
+
                         var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
+                        if (status_ == "200")
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<AccountViewModel>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == "400") 
+                        if (status_ == "400")
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ErrorViewModel>(response_, headers_).ConfigureAwait(false);
                             throw new ApiException<ErrorViewModel>("Account not found", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
@@ -103,10 +105,10 @@ namespace BankProviders.FairWay
                         else
                         if (status_ != "200" && status_ != "204")
                         {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
-            
+
                         return default(AccountViewModel);
                     }
                     finally
@@ -120,14 +122,14 @@ namespace BankProviders.FairWay
             {
             }
         }
-    
+
         /// <returns>Successfully found the account's balance</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<BalanceViewModel> NumberBalanceGetAsync(string account_number)
         {
             return NumberBalanceGetAsync(account_number, System.Threading.CancellationToken.None);
         }
-    
+
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Successfully found the account's balance</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -135,11 +137,11 @@ namespace BankProviders.FairWay
         {
             if (account_number == null)
                 throw new System.ArgumentNullException("account_number");
-    
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/accounts/{account_number}/balance");
             urlBuilder_.Replace("{account_number}", System.Uri.EscapeDataString(ConvertToString(account_number, System.Globalization.CultureInfo.InvariantCulture)));
-    
+
             var client_ = _httpClient;
             try
             {
@@ -147,12 +149,12 @@ namespace BankProviders.FairWay
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
+
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
                     PrepareRequest(client_, request_, url_);
-    
+
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     try
                     {
@@ -162,17 +164,18 @@ namespace BankProviders.FairWay
                             foreach (var item_ in response_.Content.Headers)
                                 headers_[item_.Key] = item_.Value;
                         }
-    
+
                         ProcessResponse(client_, response_);
-    
+
                         var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
+                        if (status_ == "200")
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<BalanceViewModel>(response_, headers_).ConfigureAwait(false);
+
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == "400") 
+                        if (status_ == "400")
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ErrorViewModel>(response_, headers_).ConfigureAwait(false);
                             throw new ApiException<ErrorViewModel>("Balance for account not found", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
@@ -180,10 +183,10 @@ namespace BankProviders.FairWay
                         else
                         if (status_ != "200" && status_ != "204")
                         {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
-            
+
                         return default(BalanceViewModel);
                     }
                     finally
@@ -197,26 +200,26 @@ namespace BankProviders.FairWay
             {
             }
         }
-    
+
         /// <returns>Successfully found the account's transactions</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<TransactionViewModel> NumberTransactionsGetAsync(string account_number)
+        public System.Threading.Tasks.Task<List<TransactionViewModel>> NumberTransactionsGetAsync(string account_number)
         {
             return NumberTransactionsGetAsync(account_number, System.Threading.CancellationToken.None);
         }
-    
+
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Successfully found the account's transactions</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<TransactionViewModel> NumberTransactionsGetAsync(string account_number, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<List<TransactionViewModel>> NumberTransactionsGetAsync(string account_number, System.Threading.CancellationToken cancellationToken)
         {
             if (account_number == null)
                 throw new System.ArgumentNullException("account_number");
-    
+
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/v1/accounts/{account_number}/transactions");
             urlBuilder_.Replace("{account_number}", System.Uri.EscapeDataString(ConvertToString(account_number, System.Globalization.CultureInfo.InvariantCulture)));
-    
+
             var client_ = _httpClient;
             try
             {
@@ -224,12 +227,12 @@ namespace BankProviders.FairWay
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
-    
+
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
                     PrepareRequest(client_, request_, url_);
-    
+
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     try
                     {
@@ -239,17 +242,17 @@ namespace BankProviders.FairWay
                             foreach (var item_ in response_.Content.Headers)
                                 headers_[item_.Key] = item_.Value;
                         }
-    
+
                         ProcessResponse(client_, response_);
-    
+
                         var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
+                        if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<TransactionViewModel>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<List<TransactionViewModel>>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == "400") 
+                        if (status_ == "400")
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<ErrorViewModel>(response_, headers_).ConfigureAwait(false);
                             throw new ApiException<ErrorViewModel>("Transactions account not found", (int)response_.StatusCode, objectResponse_.Text, headers_, objectResponse_.Object, null);
@@ -257,11 +260,11 @@ namespace BankProviders.FairWay
                         else
                         if (status_ != "200" && status_ != "204")
                         {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
-            
-                        return default(TransactionViewModel);
+
+                        return default(List<TransactionViewModel>);
                     }
                     finally
                     {
@@ -274,7 +277,7 @@ namespace BankProviders.FairWay
             {
             }
         }
-    
+
         protected struct ObjectResponseResult<T>
         {
             public ObjectResponseResult(T responseObject, string responseText)
@@ -282,21 +285,21 @@ namespace BankProviders.FairWay
                 this.Object = responseObject;
                 this.Text = responseText;
             }
-    
+
             public T Object { get; }
-    
+
             public string Text { get; }
         }
-    
+
         public bool ReadResponseAsString { get; set; }
-        
+
         protected virtual async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
         {
             if (response == null || response.Content == null)
             {
                 return new ObjectResponseResult<T>(default(T), string.Empty);
             }
-        
+
             if (ReadResponseAsString)
             {
                 var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -331,7 +334,7 @@ namespace BankProviders.FairWay
                 }
             }
         }
-    
+
         private string ConvertToString(object value, System.Globalization.CultureInfo cultureInfo)
         {
             if (value is System.Enum)
@@ -342,7 +345,7 @@ namespace BankProviders.FairWay
                     var field = System.Reflection.IntrospectionExtensions.GetTypeInfo(value.GetType()).GetDeclaredField(name);
                     if (field != null)
                     {
-                        var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute(field, typeof(System.Runtime.Serialization.EnumMemberAttribute)) 
+                        var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute(field, typeof(System.Runtime.Serialization.EnumMemberAttribute))
                             as System.Runtime.Serialization.EnumMemberAttribute;
                         if (attribute != null)
                         {
@@ -351,139 +354,140 @@ namespace BankProviders.FairWay
                     }
                 }
             }
-            else if (value is bool) {
+            else if (value is bool)
+            {
                 return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
-                return System.Convert.ToBase64String((byte[]) value);
+                return System.Convert.ToBase64String((byte[])value);
             }
             else if (value != null && value.GetType().IsArray)
             {
-                var array = System.Linq.Enumerable.OfType<object>((System.Array) value);
+                var array = System.Linq.Enumerable.OfType<object>((System.Array)value);
                 return string.Join(",", System.Linq.Enumerable.Select(array, o => ConvertToString(o, cultureInfo)));
             }
-        
+
             return System.Convert.ToString(value, cultureInfo);
         }
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class AccountViewModel 
+    public partial class AccountViewModel
     {
         /// <summary>The name of the account</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
-    
+
         /// <summary>The identifier of the account</summary>
         [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AccountIdentifierViewModel Identifier { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class AccountIdentifierViewModel 
+    public partial class AccountIdentifierViewModel
     {
         /// <summary>The account number of the account</summary>
         [Newtonsoft.Json.JsonProperty("accountNumber", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AccountNumber { get; set; }
-    
+
         /// <summary>The sort code of the account</summary>
         [Newtonsoft.Json.JsonProperty("sortCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SortCode { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ErrorViewModel 
+    public partial class ErrorViewModel
     {
         /// <summary>A message that descibes the error</summary>
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Message { get; set; }
-    
+
         /// <summary>The status of the error (should match http status code in response)</summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Status { get; set; }
-    
+
         /// <summary>The error code to quote or any correspodence with supprort</summary>
         [Newtonsoft.Json.JsonProperty("errorCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? ErrorCode { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BalanceViewModel 
+    public partial class BalanceViewModel
     {
         /// <summary>The amount of the transaction</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Amount { get; set; }
-    
+
         /// <summary>Indicates whether the amount is in credit or debit.</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BalanceViewModelType? Type { get; set; }
-    
+
         /// <summary>Overdraft on the balance - when populated the amount total includes the overdraft</summary>
         [Newtonsoft.Json.JsonProperty("overdraft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OverdraftViewModel Overdraft { get; set; }
-    
+
         /// <summary>The date of the balance</summary>
         [Newtonsoft.Json.JsonProperty("dateTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? DateTime { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class OverdraftViewModel 
+    public partial class OverdraftViewModel
     {
         /// <summary>The amount of the overdragt</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Amount { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class TransactionViewModel 
+    public partial class TransactionViewModel
     {
         /// <summary>The amount of the transaction</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Amount { get; set; }
-    
+
         /// <summary>The transaction description</summary>
         [Newtonsoft.Json.JsonProperty("transactionInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransactionInformation { get; set; }
-    
+
         /// <summary>Indicates whether the transaction is a credit or a debit entry.</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TransactionViewModelType? Type { get; set; }
-    
+
         /// <summary>The date the transaction was booked</summary>
         [Newtonsoft.Json.JsonProperty("bookedDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? BookedDate { get; set; }
-    
-    
+
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BalanceViewModelType
     {
-        _0 = 0,
-    
-        _1 = 1,
-    
+        Credit = 1,
+
+        Debit = -1,
+
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.21.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum TransactionViewModelType
     {
-        _0 = 0,
-    
-        _1 = 1,
-    
+        Credit = 1,
+
+        Debit = -1,
+
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -495,11 +499,11 @@ namespace BankProviders.FairWay
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException) 
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + response.Substring(0, response.Length >= 512 ? 512 : response.Length), innerException)
         {
             StatusCode = statusCode;
-            Response = response; 
+            Response = response;
             Headers = headers;
         }
 
@@ -514,7 +518,7 @@ namespace BankProviders.FairWay
     {
         public TResult Result { get; private set; }
 
-        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException) 
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;
@@ -525,6 +529,6 @@ namespace BankProviders.FairWay
 
 #pragma warning restore 1591
 #pragma warning restore 1573
-#pragma warning restore  472
-#pragma warning restore  114
-#pragma warning restore  108
+#pragma warning restore 472
+#pragma warning restore 114
+#pragma warning restore 108
