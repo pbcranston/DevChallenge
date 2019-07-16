@@ -52,7 +52,7 @@ namespace Openwrks.API.Controllers.v1
         }
 
         /// <summary>
-        /// Return single users
+        /// Return single user
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -69,6 +69,11 @@ namespace Openwrks.API.Controllers.v1
             return await GetItemViewModel(userVm);
         }
 
+        /// <summary>
+        /// Add new user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost()]
         [Produces("application/json", Type = typeof(ItemViewModel<UserCreateModel>))]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateRequestModel user)
@@ -90,6 +95,12 @@ namespace Openwrks.API.Controllers.v1
             return await GetCreatedRequestModel(user, newUserId, "GetUser");
         }
 
+        /// <summary>
+        /// Update user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         [Produces("application/json", Type = null)]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UserCreateRequestModel user)
@@ -111,6 +122,11 @@ namespace Openwrks.API.Controllers.v1
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         [Produces("application/json", Type = null)]
         public async Task<IActionResult> DeleteUser(Guid id)

@@ -14,6 +14,8 @@ namespace Openwrks.Business
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IBankService, BankService>();
+
         }
     }
 }

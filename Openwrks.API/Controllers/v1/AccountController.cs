@@ -21,6 +21,11 @@ namespace Openwrks.API.Controllers.v1
             _accountService = accountService;
         }
 
+        /// <summary>
+        /// Get account data from user's bank
+        /// </summary>
+        /// <param name="accountNumber"></param>
+        /// <returns></returns>
         [HttpGet("{accountNumber}", Name = "GetAccount")]
         [Produces("application/json", Type = typeof(AccountViewModel))]
         public async Task<IActionResult> GetAccount(string accountNumber)
@@ -32,7 +37,11 @@ namespace Openwrks.API.Controllers.v1
             return await GetItemViewModel(accountVm);
         }
 
-
+        /// <summary>
+        /// Get balance data from user's bank
+        /// </summary>
+        /// <param name="accountNumber"></param>
+        /// <returns></returns>
         [HttpGet("{accountNumber}/balance", Name = "GetBalance")]
         [Produces("application/json", Type = typeof(BalanceViewModel))]
         public async Task<IActionResult> GetBalance(string accountNumber)
@@ -44,6 +53,11 @@ namespace Openwrks.API.Controllers.v1
             return await GetItemViewModel(balanceVm);
         }
 
+        /// <summary>
+        /// Get transaction history from user's bank
+        /// </summary>
+        /// <param name="accountNumber"></param>
+        /// <returns></returns>
         [HttpGet("{accountNumber}/transactions", Name = "GetTransactions")]
         [Produces("application/json", Type = typeof(List<TransactionViewModel>))]
         public async Task<IActionResult> GetTransactions(string accountNumber)

@@ -36,8 +36,6 @@ namespace Openwrks.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var serilog = Configuration.GetConnectionString("Serilog");
-
             services.AddSingleton<ILogger>(c =>
             {
                 var env = c.GetService<IHostingEnvironment>();
