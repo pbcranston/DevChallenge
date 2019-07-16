@@ -23,7 +23,7 @@ namespace Openwrks.API.Controllers.v1
             Log = log;
         }
 
-        public async Task<IActionResult> GetListViewModel<T>(IEnumerable<T> viewModelList, IListRequestModel model, int totalCount, string message = null)
+        protected async Task<IActionResult> GetListViewModel<T>(IEnumerable<T> viewModelList, IListRequestModel model, int totalCount, string message = null)
         where T : class, new()
         {
             return Ok(new ListViewModel<T>
@@ -43,7 +43,7 @@ namespace Openwrks.API.Controllers.v1
             });
         }
 
-        public async Task<IActionResult> GetItemViewModel<T>(T viewModel, string message = null)
+        protected async Task<IActionResult> GetItemViewModel<T>(T viewModel, string message = null)
             where T : class, new()
         {
             return Ok(new ItemViewModel<T>
@@ -56,9 +56,9 @@ namespace Openwrks.API.Controllers.v1
                 }
             });
         }
-        
-        
-        public async Task<IActionResult> GetCreatedRequestModel<TCreateRM>(TCreateRM viewModel, Guid entityId, string route, string message = null)
+
+
+        protected async Task<IActionResult> GetCreatedRequestModel<TCreateRM>(TCreateRM viewModel, Guid entityId, string route, string message = null)
             where TCreateRM : class, ICreateRequestModel, new()
         {
             viewModel.Id = entityId;
@@ -74,7 +74,7 @@ namespace Openwrks.API.Controllers.v1
         }
 
 
-        public IActionResult GetNotFound(string message = null)
+        protected IActionResult GetNotFound(string message = null)
         {
             return NotFound(new ErrorViewModel()
             {
@@ -85,7 +85,7 @@ namespace Openwrks.API.Controllers.v1
                 }
             });
         }
-        public IActionResult GetBadRequest(string message = null, Exception ex = null)
+        protected IActionResult GetBadRequest(string message = null, Exception ex = null)
         {
             var displayMessage = message;
 #if DEBUG
@@ -101,7 +101,7 @@ namespace Openwrks.API.Controllers.v1
                 }
             });
         }
-        public IActionResult GetBadRequest<T>(T viewModel, string message = null)
+        protected IActionResult GetBadRequest<T>(T viewModel, string message = null)
             where T : class, new()
         {
             return BadRequest(new ItemViewModel<T>
