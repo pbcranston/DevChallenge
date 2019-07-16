@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Openwrks.Business.Contracts.Interfaces;
-using Openwrks.Business.Contracts.Interfaces.Providers;
 using Openwrks.Business.Services;
 using BankProviders.Bizfi;
 
@@ -15,7 +14,6 @@ namespace Openwrks.Business
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IBankProvider, BizfiProvider>();
         }
     }
 }

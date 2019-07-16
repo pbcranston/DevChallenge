@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankProviders.Bizfi\BankProviders.Bizfi.csproj" />
+    <ProjectReference Include="..\BankProvider.Factory\BankProvider.Factory.csproj" />
     <ProjectReference Include="..\Openwrks.Business.Contracts\Openwrks.Business.Contracts.csproj" />
   </ItemGroup>
 

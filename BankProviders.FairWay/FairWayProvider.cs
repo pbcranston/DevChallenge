@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Openwrks.Business.Contracts.Interfaces.Providers;
+using System.Threading.Tasks;
+using BankProviders.Contracts;
 using Openwrks.Business.Models.Models.Account;
 
 namespace BankProviders.FairWay
 {
     public class FairWayProvider : IBankProvider
     {
-        public AccountDataModel GetAccountAsync(string accountNumber)
+        public async Task<AccountDataModel> GetAccountAsync(string accountNumber)
         {
             throw new NotImplementedException();
         }
 
-        public BalanceDataModel GetBalance(string accountNumber)
+        public async Task<BalanceDataModel> GetBalanceAsync(string accountNumber)
         {
             throw new NotImplementedException();
         }
 
-        public List<TransactionDataModel> GetTransactions(string accountNumber)
+        public async Task<List<TransactionDataModel>> GetTransactionsAsync(string accountNumber)
         {
             throw new NotImplementedException();
         }

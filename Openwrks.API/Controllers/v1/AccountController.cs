@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Openwrks.Business.Contracts.Interfaces;
-using Openwrks.Business.Contracts.Interfaces.Providers;
 using AutoMapper;
 using Openwrks.ViewModels.Models.Response.Account;
 using Serilog;

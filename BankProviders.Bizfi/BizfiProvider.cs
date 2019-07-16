@@ -1,4 +1,4 @@
-﻿using Openwrks.Business.Contracts.Interfaces.Providers;
+﻿using BankProviders.Contracts;
 using Openwrks.Business.Models.Models.Account;
 using System;
 using System.Collections.Generic;
@@ -41,7 +41,7 @@ namespace BankProviders.Bizfi
             }
         }
 
-        public async Task<BalanceDataModel> GetBalance(string accountNumber)
+        public async Task<BalanceDataModel> GetBalanceAsync(string accountNumber)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace BankProviders.Bizfi
             }
         }
 
-        public async Task<List<TransactionDataModel>> GetTransactions(string accountNumber)
+        public async Task<List<TransactionDataModel>> GetTransactionsAsync(string accountNumber)
         {
             try
             {
