@@ -15,13 +15,13 @@ using System.Collections.Generic;
 namespace BankProviders.Bizfi
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class ApiV1AccountsByAccountClient 
+    public partial class ApiV1BizfiClient 
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ApiV1AccountsByAccountClient(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public ApiV1BizfiClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl; 
             _httpClient = httpClient; 

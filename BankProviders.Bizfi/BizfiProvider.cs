@@ -10,7 +10,7 @@ namespace BankProviders.Bizfi
 {
     public class BizfiProvider : IBankProvider
     {
-        public ApiV1AccountsByAccountClient ApiClient
+        public ApiV1BizfiClient ApiClient
         {
             get { return BizfiClient.Instance; }
         }
